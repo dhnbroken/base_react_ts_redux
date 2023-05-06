@@ -1,5 +1,5 @@
-import { apiUserRoles } from "@app/api";
 import { createAsyncThunk } from "@reduxjs/toolkit";
+import { apiUserRoles } from "services";
 
 import { USER_ROLES_KEY } from "../../../tools/constants";
 

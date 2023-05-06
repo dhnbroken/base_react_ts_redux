@@ -1,5 +1,5 @@
-import { apiUserDetails, Types } from "@app/api";
 import { createAsyncThunk } from "@reduxjs/toolkit";
+import { apiUserDetails, Types } from "services";
 
 import { USER_DETAILS_KEY } from "../../../tools/constants";
 

@@ -1,7 +1,7 @@
-import { Types } from "@app/api";
-import { reducer } from "store/store";
+import { Types } from "services";
 
 import { GeneralState } from "./tools";
+import { reducer } from "../store";
 
 // create rootstate
 export type RootState = ReturnType<typeof reducer>;
