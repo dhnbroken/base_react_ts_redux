@@ -10,8 +10,9 @@ import storage from "redux-persist/es/storage";
 import { encryptTransform } from "redux-persist-transform-encrypt";
 
 // import reducers and slice key
+import { userDetailsReducer } from "./modules/user-details";
 import { userRolesReducer } from "./modules/user-roles";
-import { USER_ROLES_KEY } from "./tools/constants";
+import { USER_ROLES_KEY, USER_DETAILS_KEY } from "./tools/constants";
 import { KEY_ENCRYPT_STORE } from "./tools/constants";
 import { RootState } from "./tools/types";
 
@@ -39,6 +40,7 @@ const persistConfig: PersistConfig<any> = {
 export const reducer = combineReducers({
   // add reducers and slice key as  [key] : reducer
   [USER_ROLES_KEY]: userRolesReducer,
+  [USER_DETAILS_KEY]: userDetailsReducer,
 });
 
 // root reducer

@@ -9,7 +9,7 @@ export interface CreateUserDetailsRequest {
   email: string;
 }
 
-export interface PatchUserDetailsRequest {
+export interface UpdateUserDetailsRequest {
   name?: string;
   email?: string;
 }

@@ -4,3 +4,4 @@ export const KEY_ENCRYPT_STORE = process.env
 
 // Reducer Key's
 export const USER_ROLES_KEY = "userRoles";
+export const USER_DETAILS_KEY = "userDetails";

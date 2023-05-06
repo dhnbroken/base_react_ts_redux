@@ -11,3 +11,18 @@ export interface UserRolesState {
     Types.ApiResponse<Types.UserRolesTypes.UserRolesResponse>
   >;
 }
+
+export interface UserDetailsState {
+  userDetails: GeneralState<
+    Types.ApiResponse<Types.UserDetailsTypes.UserDetailsResponse>
+  >;
+  createdUserDetails: GeneralState<
+    Types.ApiResponse<Types.UserDetailsTypes.UserDetailsResponse>
+  >;
+  updatedUserDetails: GeneralState<
+    Types.ApiResponse<Types.UserDetailsTypes.UserDetailsResponse>
+  >;
+  deletedUserDetails: GeneralState<
+    Types.ApiResponse<Types.UserDetailsTypes.DeleteUserDetailsResponse>
+  >;
+}

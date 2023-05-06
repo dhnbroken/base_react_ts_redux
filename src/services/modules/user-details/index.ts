@@ -1,7 +1,7 @@
 import {
   UserDetailsResponse,
   CreateUserDetailsRequest,
-  PatchUserDetailsRequest,
+  UpdateUserDetailsRequest,
   DeleteUserDetailsResponse,
 } from "./types";
 import { baseUrl } from "../../base-api/baseUrl";
@@ -37,12 +37,12 @@ export const apiCreateUserDetails = async (
   }
 };
 
-export const apiPatchUserDetails = async ({
+export const apiUpdateUserDetails = async ({
   userId,
   userData,
 }: {
   userId: string;
-  userData: PatchUserDetailsRequest;
+  userData: UpdateUserDetailsRequest;
 }): Promise<ApiResponse<UserDetailsResponse>> => {
   try {
     const { data, status } = await baseUrl.patch<UserDetailsResponse>(
