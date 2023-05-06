@@ -5,7 +5,7 @@ import {
   configureStore,
 } from "@reduxjs/toolkit";
 import { TypedUseSelectorHook, useDispatch, useSelector } from "react-redux";
-import { PersistConfig, persistReducer } from "redux-persist";
+import { PersistConfig, persistReducer, persistStore } from "redux-persist";
 import storage from "redux-persist/es/storage";
 import { encryptTransform } from "redux-persist-transform-encrypt";
 
@@ -67,6 +67,9 @@ export const store = configureStore({
 });
 
 // create dispatch as AppDispatch
-export type AppDispatch = typeof store.dispatch;
+type AppDispatch = typeof store.dispatch;
 export const useAppDispatch = () => useDispatch<AppDispatch>();
 export const useAppSelector: TypedUseSelectorHook<RootState> = useSelector;
+
+// create persistor object
+export const persistor = persistStore(store);
