@@ -1,3 +1,3 @@
 export interface UserRolesResponse {
-  data: string[] | null;
+  userRoles: string[] | null;
 }
