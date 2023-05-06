@@ -15,13 +15,7 @@
     "isolatedModules": true,
     "noEmit": true,
     "jsx": "react-jsx",
-    "baseUrl": "./src",
-    "paths": {
-      "@app/store": ["store/index.ts"],
-      "@app/store/*": ["store/module/*"],
-      "@app/api": ["services/index.ts"],
-      "@app/api/*": ["services/*"]
-    }
+    "baseUrl": "./src"
   },
   "include": ["src"],
   "exclude": ["node_modules", "tmp"]
