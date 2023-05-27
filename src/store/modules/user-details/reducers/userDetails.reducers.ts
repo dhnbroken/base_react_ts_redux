@@ -1,5 +1,5 @@
-import { Types } from "@app/api";
 import { PayloadAction } from "@reduxjs/toolkit";
+import { Types } from "services";
 
 import { UserDetailsState } from "../../../tools/types";
 

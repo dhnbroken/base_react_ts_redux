@@ -21,6 +21,6 @@ export const getUserRolesFulfilled = (
 };
 
 export const getUserRolesRejected = (state: UserRolesState, action: any) => {
-  (state.getRoles.loadingStatus = "error"),
-    (state.getRoles.error = action.payload || action.error);
+  state.getRoles.loadingStatus = "error";
+  state.getRoles.error = action.payload || action.error;
 };
