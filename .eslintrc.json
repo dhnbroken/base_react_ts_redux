@@ -40,12 +40,10 @@
       "warn",
       {
         "groups": [
-          "external", // external modules (e.g. "lodash", "react")
-          "builtin", // built-in modules (e.g. "fs", "path")
-          "internal", // internal modules (e.g. "@/components", "@/utils")
-          "parent", // parent directories (e.g. "../", "../../")
-          "sibling", // sibling files (e.g. "./utils", "./components")
-          "index"
+          ["external","builtin"],// external modules (e.g. "lodash", "react") -- built-in modules (e.g. "fs", "path")
+          ["internal"],// internal modules (e.g. "@/components", "@/utils")
+          ["parent"],// parent directories (e.g. "../", "../../")
+          ["sibling","index"]// --- sibling files (e.g. "./utils", "./components") -- the index file (e.g. "./")
         ]
       }
     ],

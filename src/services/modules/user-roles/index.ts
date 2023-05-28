@@ -1,7 +1,7 @@
-import { UserRolesResponse } from "./types";
 import { baseUrl } from "../../base-api/baseUrl";
 import { handleSubModuleError } from "../../tools/apiError";
 import { ApiResponse } from "../../tools/types";
+import { UserRolesResponse } from "./types";
 
 export const apiGetUserRoles = async (): Promise<
   ApiResponse<UserRolesResponse>

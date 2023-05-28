@@ -1,5 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 
+import { USER_DETAILS_KEY } from "../../tools/constants";
+import { UserDetailsState } from "../../tools/types";
 import {
   createUserDetails,
   deleteUserDetails,
@@ -7,8 +9,6 @@ import {
   updateUserDetails,
 } from "./actions/userDetails.thunk";
 import * as reducers from "./reducers/userDetails.reducers";
-import { USER_DETAILS_KEY } from "../../tools/constants";
-import { UserDetailsState } from "../../tools/types";
 
 const initialState: UserDetailsState = {
   userDetails: {

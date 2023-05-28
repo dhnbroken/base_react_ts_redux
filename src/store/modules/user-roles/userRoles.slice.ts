@@ -1,9 +1,9 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-import { getUserRoles } from "./actions/userRoles.thunk";
-import * as reducers from "./reducers/userRoles.reducers";
 import { USER_ROLES_KEY } from "../../tools/constants";
 import { UserRolesState } from "../../tools/types";
+import { getUserRoles } from "./actions/userRoles.thunk";
+import * as reducers from "./reducers/userRoles.reducers";
 
 const initialState: UserRolesState = {
   getRoles: {

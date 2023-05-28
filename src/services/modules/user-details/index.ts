@@ -1,12 +1,12 @@
+import { baseUrl } from "../../base-api/baseUrl";
+import { handleSubModuleError } from "../../tools/apiError";
+import { ApiResponse } from "../../tools/types";
 import {
   UserDetailsResponse,
   CreateUserDetailsRequest,
   UpdateUserDetailsRequest,
   DeleteUserDetailsResponse,
 } from "./types";
-import { baseUrl } from "../../base-api/baseUrl";
-import { handleSubModuleError } from "../../tools/apiError";
-import { ApiResponse } from "../../tools/types";
 
 export const apiGetUserDetails = async ({
   userId,

@@ -1,7 +1,7 @@
 import { Types } from "services";
 
-import { GeneralState } from "./tools";
 import { reducer } from "../store";
+import { GeneralState } from "./tools";
 
 // create rootstate
 export type RootState = ReturnType<typeof reducer>;
