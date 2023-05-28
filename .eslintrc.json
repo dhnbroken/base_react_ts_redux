@@ -6,7 +6,10 @@
   "extends": [
     "eslint:recommended",
     "plugin:@typescript-eslint/recommended",
-    "plugin:import/typescript"
+    "plugin:import/typescript",
+    "plugin:react/recommended",
+    "plugin:react-hooks/recommended",
+    "prettier"
   ],
   "parser": "@typescript-eslint/parser",
   "parserOptions": {
@@ -15,21 +18,38 @@
     "sourceType": "module",
     "project": "./tsconfig.json"
   },
-  "plugins": ["@typescript-eslint", "import"],
+  "ignorePatterns": [
+    "node_modules/",
+    "dist/",
+    "build/",
+    "coverage/",
+    ".eslintrc.json",
+    ".prettierrc.json",
+    ".gitignore",
+    ".gitattributes",
+    ".vscode/",
+    ".github/",
+    ".husky/",
+    ".lintstagedrc.js",
+    ".prettier"
+  ],
+  "plugins": ["@typescript-eslint", "import", "react", "react-hooks","prettier"],
   "rules": {
     // Your rules go here
     "import/order": [
       "warn",
       {
         "groups": [
-          ["builtin", "external"],
-          "internal",
-          ["parent", "sibling"],
+          "external", // external modules (e.g. "lodash", "react")
+          "builtin", // built-in modules (e.g. "fs", "path")
+          "internal", // internal modules (e.g. "@/components", "@/utils")
+          "parent", // parent directories (e.g. "../", "../../")
+          "sibling", // sibling files (e.g. "./utils", "./components")
           "index"
-        ],
-        "newlines-between": "always",
-        "alphabetize": { "order": "asc", "caseInsensitive": true }
+        ]
       }
-    ]
+    ],
+    "no-var": "error",
+    "prettier/prettier": "error"
   }
 }
