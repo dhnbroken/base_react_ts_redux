@@ -20,7 +20,7 @@ import { RootState } from "./tools/types";
 const KEY_PERSIST_CONFIG = "root";
 
 // persist config
-const persistConfig: PersistConfig<any> = {
+const persistConfig: PersistConfig<RootState> = {
   key: KEY_PERSIST_CONFIG,
   storage,
   blacklist: [],
