@@ -3,7 +3,7 @@ import * as React from "react";
 import useIsomorphicLayoutEffect from "./useIsomorphicLayoutEffect";
 
 function useEventCallback<T extends (...args: any[]) => any>(fn: T): T {
-  const ref: any = React.useRef(fn);
+  const ref = React.useRef<T>(fn);
 
   // we copy a ref to the callback scoped to the current state/props on each render
   useIsomorphicLayoutEffect(() => {

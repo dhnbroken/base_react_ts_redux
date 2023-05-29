@@ -1,1 +1,1 @@
-export * as helpers from "./helpers/resuableFunc";
+export * as helpers from "./helpers";
