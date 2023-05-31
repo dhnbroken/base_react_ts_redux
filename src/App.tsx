@@ -1,7 +1,8 @@
 import React, { FC } from "react";
+import Routers from "routers/Routers";
 
 const App: FC = () => {
-  return <div>Hello!</div>;
+  return <Routers />;
 };
 
 export default App;
