@@ -28,3 +28,21 @@
   font-size: 16px;
   padding: 12px 24px;
 }
+.storybook-button--xlarge {
+  font-size: 18px;
+  padding: 12px 32px;
+}
+.storybook-button--xxlarge {
+  font-size: 20px;
+  padding: 12px 48px;
+}
+.storybook-button-disabled{
+  background-color: #ccc;
+  color: #333;
+  cursor: not-allowed;
+}
+.storybook-button-disabled.storybook-button-spinner{
+  background-color: #ccc;
+  color: #333;
+  cursor: not-allowed;
+}

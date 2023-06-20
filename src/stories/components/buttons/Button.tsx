@@ -1,5 +1,6 @@
 import React from "react";
 import "./button.css";
+import { Spinner } from "../spinners/Spinner";
 
 interface ButtonProps {
   /**
@@ -13,7 +14,7 @@ interface ButtonProps {
   /**
    * How large should the button be?
    */
-  size?: "small" | "medium" | "large";
+  size?: "small" | "medium" | "large" | "xlarge" | "xxlarge";
   /**
    * Button contents
    */
@@ -22,6 +23,14 @@ interface ButtonProps {
    * Optional click handler
    */
   onClick?: () => void;
+  /**
+   * Button Disabled
+   */
+  isDisabled?: boolean;
+  /**
+   * Button loading state spinner
+   */
+  isLoading?: boolean;
 }
 
 /**
@@ -31,6 +40,8 @@ export const Button = ({
   primary = false,
   size = "medium",
   backgroundColor,
+  isDisabled = false,
+  isLoading = false,
   label,
   ...props
 }: ButtonProps) => {
@@ -40,13 +51,23 @@ export const Button = ({
   return (
     <button
       type="button"
-      className={["storybook-button", `storybook-button--${size}`, mode].join(
-        " "
-      )}
+      className={[
+        "storybook-button",
+        `storybook-button--${size}`,
+        mode,
+        isDisabled || isLoading ? "storybook-button-disabled" : "",
+      ].join(" ")}
       style={{ backgroundColor }}
+      disabled={isDisabled}
       {...props}
     >
-      {label}
+      {isLoading ? (
+        <div className="storybook-button-spinner">
+          <Spinner size={20} color="#fff" />
+        </div>
+      ) : (
+        label
+      )}
     </button>
   );
 };
