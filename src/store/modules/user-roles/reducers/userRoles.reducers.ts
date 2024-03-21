@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { PayloadAction } from "@reduxjs/toolkit";
 import { Types } from "services";
 

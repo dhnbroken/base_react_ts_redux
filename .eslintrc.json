@@ -33,21 +33,28 @@
     ".lintstagedrc.js",
     ".prettier"
   ],
-  "plugins": ["@typescript-eslint", "import", "react", "react-hooks","prettier"],
+  "plugins": [
+    "@typescript-eslint",
+    "import",
+    "react",
+    "react-hooks",
+    "prettier"
+  ],
   "rules": {
     // Your rules go here
     "import/order": [
       "warn",
       {
         "groups": [
-          ["external","builtin"],// external modules (e.g. "lodash", "react") -- built-in modules (e.g. "fs", "path")
-          ["internal"],// internal modules (e.g. "@/components", "@/utils")
-          ["parent"],// parent directories (e.g. "../", "../../")
-          ["sibling","index"]// --- sibling files (e.g. "./utils", "./components") -- the index file (e.g. "./")
+          ["external", "builtin"], // external modules (e.g. "lodash", "react") -- built-in modules (e.g. "fs", "path")
+          ["internal"], // internal modules (e.g. "@/components", "@/utils")
+          ["parent"], // parent directories (e.g. "../", "../../")
+          ["sibling", "index"] // --- sibling files (e.g. "./utils", "./components") -- the index file (e.g. "./")
         ]
       }
     ],
     "no-var": "error",
-    "prettier/prettier": "error"
+    "prettier/prettier": "error",
+    "@typescript-eslint/no-explicit-any": "off"
   }
 }

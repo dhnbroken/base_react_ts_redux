@@ -1,5 +1,5 @@
 // store - dispatch - selector
-export { store, useAppDispatch, useAppSelector, persistor } from "./store";
+export { useAppDispatch, useAppSelector, makeStore } from "./store";
 
 // state types
 export type {

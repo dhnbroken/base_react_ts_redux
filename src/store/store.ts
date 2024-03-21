@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import {
   AnyAction,
   Reducer,
@@ -7,13 +8,11 @@ import {
 import { TypedUseSelectorHook, useDispatch, useSelector } from "react-redux";
 import { PersistConfig, persistReducer, persistStore } from "redux-persist";
 import storage from "redux-persist/es/storage";
-import { encryptTransform } from "redux-persist-transform-encrypt";
-
+// import createEncryptor from "redux-persist-transform-encrypt";
 // import reducers and slice key
 import { userDetailsReducer } from "./modules/user-details";
 import { userRolesReducer } from "./modules/user-roles";
 import { USER_ROLES_KEY, USER_DETAILS_KEY } from "./tools/constants";
-import { KEY_ENCRYPT_STORE } from "./tools/constants";
 import { RootState } from "./tools/types";
 
 // persist key
@@ -25,15 +24,11 @@ const persistConfig: PersistConfig<RootState> = {
   storage,
   blacklist: [],
   writeFailHandler: (error) => console.log("storage error: ", error),
-  transforms: [
-    encryptTransform({
-      secretKey: KEY_ENCRYPT_STORE,
-      onError: function (error) {
-        // Handle the error.
-        console.log(`error transform encrypted store `, error);
-      },
-    }),
-  ],
+  // transforms: [
+  //   createEncryptor({
+  //     secretKey: KEY_ENCRYPT_STORE,
+  //   }),
+  // ],
 };
 
 // combine all reducers
@@ -57,19 +52,24 @@ const rootReducer: Reducer = (state: RootState, action: AnyAction) => {
 const persistedReducer = persistReducer(persistConfig, rootReducer);
 
 // create store
-export const store = configureStore({
-  reducer: persistedReducer,
-  // Additional middleware can be passed to this array
-  middleware: (getDefaultMiddleware) =>
-    getDefaultMiddleware({
-      serializableCheck: false,
-    }),
-});
+export const makeStore = () => {
+  const store: any = configureStore({
+    reducer: persistedReducer,
+    middleware: (getDefaultMiddleware) =>
+      getDefaultMiddleware({
+        serializableCheck: false,
+      }),
+  });
+
+  // create persistor object
+  store.__persistor = persistStore(store);
+
+  return store;
+};
 
 // create dispatch as AppDispatch
-type AppDispatch = typeof store.dispatch;
+type AppDispatch = AppStore["dispatch"];
+export type AppStore = ReturnType<typeof makeStore>;
+
 export const useAppDispatch = () => useDispatch<AppDispatch>();
 export const useAppSelector: TypedUseSelectorHook<RootState> = useSelector;
-
-// create persistor object
-export const persistor = persistStore(store);
